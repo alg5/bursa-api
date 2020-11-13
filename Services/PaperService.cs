@@ -60,7 +60,36 @@ namespace Bursa.Services
             }
 
         }
+       public string GetPapersByNameAll()
+        {
+            string result = string.Empty;
+            IList<PapersByName> lstPapers = null;
+            int totalRows = 0;
 
+            try
+            { 
+                totalRows = db.Papers.Count();
+
+                lstPapers = db.Papers.Select(paper => new PapersByName()
+                {
+                    Id = paper.PaperId,
+                    Name = paper.PaperName
+                }
+                ).ToList();
+
+
+                var objects = new { PapersByNameList = lstPapers};
+                result = JsonSerializer.Serialize(objects);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                //TODO
+                throw (ex);
+
+            }
+
+        }
         public string GetPaperById(int id)
         {
             string result = string.Empty;

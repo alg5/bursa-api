@@ -48,8 +48,8 @@ namespace Bursa.Models
     }
     public class PapersByName
     {
-        public int PaperId { get; set; }
-        public string PaperName { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
      }
 
 

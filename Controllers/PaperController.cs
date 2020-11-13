@@ -45,5 +45,12 @@ namespace Bursa.Controllers
             return Ok(res);
         }
 
+        [HttpGet]
+        [Route("[controller]/[action]")]
+        public IActionResult GetPapersByNameAll()
+        {
+            string res = paperService.GetPapersByNameAll();
+            return Ok(res);
+        }
     }
 }
